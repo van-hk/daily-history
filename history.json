@@ -1,0 +1,19 @@
+history.json
+[
+  {
+    "month": 1,
+    "day": 6,
+    "year": 1912,
+    "title": "Roald Amundsen reaches South Pole",
+    "text": "On January 6, 1912, Norwegian explorer Roald Amundsen became the first person to reach the South Pole. His team carefully planned the expedition, using sledges and skis, and successfully beat the British expedition led by Robert Falcon Scott. This historic achievement marked a milestone in polar exploration and demonstrated exceptional navigation and survival skills under extreme conditions.",
+    "source": "https://en.wikipedia.org/wiki/Roald_Amundsen"
+  },
+  {
+    "month": 1,
+    "day": 7,
+    "year": 1927,
+    "title": "First transatlantic telephone call",
+    "text": "On January 7, 1927, the first transatlantic telephone call was made from New York to London. The successful call demonstrated the potential of international communication technology and paved the way for the global telecommunications we rely on today. The early experiments faced technical challenges but ultimately proved that long-distance voice transmission across the Atlantic was possible.",
+    "source": "https://en.wikipedia.org/wiki/Transatlantic_telephone_service"
+  }
+]
