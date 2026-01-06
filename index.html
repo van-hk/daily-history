@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily History</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f5f5;
+      padding: 2rem;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .year {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>📜 Heute in der Geschichte</h1>
+    <p id="date"></p>
+    <p class="year" id="year"></p>
+    <p id="event"></p>
+  </div>
+
+  <script>
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    document.getElementById("date").textContent =
+      date.toLocaleDateString("de-DE", { day: "numeric", month: "long" });
+
+    fetch(`https://byabbe.se/on-this-day/${month}/${day}/events.json`)
+      .then(response => response.json())
+      .then(data => {
+        const event = data.events[0];
+        document.getElementById("year").textContent = event.year;
+        document.getElementById("event").textContent = event.description;
+      })
+      .catch(() => {
+        document.getElementById("event").textContent =
+          "Heute konnte kein historisches Ereignis geladen werden.";
+      });
+  </script>
+</body>
+</html>
