@@ -5,9 +5,9 @@
   <title>Daily History</title>
   <style>
     body {
-      font-family: system-ui, sans-serif;//uses standard font
-      background: #f5f5f5;
-      padding: 2rem; //distance edge
+      font-family: system-ui, sans-serif; /* uses standard font */
+      background: #b3a288;
+      padding: 2rem; /* distance edge */
       text-align: center;
     } 
     .card { //Karte in mitte
@@ -37,25 +37,20 @@
 
   <script> 
     const date = new Date();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
 
     document.getElementById("date").textContent =
-      date.toLocaleDateString("de-DE", { day: "numeric", month: "long" });
+      today.toLocaleDateString("de-DE", { day: "numeric", month: "long" });
 
     fetch('history.json')
   .then(response => response.json())
   .then(data => {
-    const today = new Date();
-    const month = today.getMonth() + 1;
-    const day = today.getDate();
-
-    // Suche Ereignis für heute
+  /* Suche Ereignis für heute */
+  
     const event = data.find(e => e.month === month && e.day === day);
 
     if(event) {
-      document.getElementById("date").textContent =
-        today.toLocaleDateString("en-US", { month: 'long', day: 'numeric' });
       document.getElementById("title").textContent = event.title;
       document.getElementById("year").textContent = `Year: ${event.year}`;
       document.getElementById("text").textContent = event.text;
