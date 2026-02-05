@@ -30,6 +30,7 @@
 </head>
 <body>
   <div class="card"> 
+    <p id="greeting" style="opacity: 0.6; font-size: 0.9em;"></p>
     <h1>📜 This day in History</h1>
     <p id="date"></p> 
     <p id="title"></p>
@@ -40,6 +41,28 @@
 
   <script> 
     const today = new Date();
+    const hour = today.getHours();
+const greetingEl = document.getElementById("greeting");
+
+if (hour < 3) {
+  greetingEl.textContent = "Geh schlafen, wie soll den sonst jemals was aus dir werden?";
+} else if (hour < 6) {
+  greetingEl.textContent = "Hoffe dir geht es gut? Wenn nicht ruf an! (Und wenn bei dir alles ok ist, warum zur Hölle bist du gerde wach?)";
+} else if (hour < 8) {
+  greetingEl.textContent = "Was ist denn mit dir falsch dass du schon wach bist?...Trotzdem guten Morgen!";
+} else if (hour < 11) {
+  greetingEl.textContent = "Moin moin, hoffe du hast nen schönen Tag:)";
+} else if (hour < 13) {
+  greetingEl.textContent = "Hoffe mal du bist nicht eben erst aufgestanden, wäre schon sehr schwach!";
+} else if (hour < 19) {
+  greetingE1.textContent = "Bester Zeitpunkt um sich im schwarzen Loch von Wikipedia zu verlaufen, Lernen ist eh überbewertet"; 
+} else if (hour < 23) {
+  greetingE1.textContent = "Hoffe du hattest nen schönen Tag! (Versuche ausnahmeswse mal nett zu sein, hoffe du weißt das zu schätzen haha);
+} else if (hour < 24) {
+   greetingE1.textContent = " Gute Nacht, hoffe mal du träumst was schönes! (von mir zum Beispiel);
+} 
+  
+
     const month = today.getMonth() + 1;
     const day = today.getDate();
 
