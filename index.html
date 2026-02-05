@@ -54,13 +54,26 @@
     const event = data.find(e => e.month === month && e.day === day);
 
     if(event) {
-      document.getElementById("title").textContent = event.title;
-      document.getElementById("year").textContent = `Year: ${event.year}`;
-      document.getElementById("text").textContent = event.text;
-      document.getElementById("source").href = event.source;
-    } else {
-      document.getElementById("text").textContent = "No historical event available for today.";
-    }
+  document.getElementById("title").textContent = event.title;
+  document.getElementById("year").textContent = `Year: ${event.year}`;
+  document.getElementById("text").textContent = event.text;
+
+  const sourceLink = document.getElementById("source");
+  sourceLink.href = event.source;
+  sourceLink.target = "_blank";
+
+  // GoatCounter: Klick auf Quelle tracken
+  sourceLink.setAttribute(
+    "data-goatcounter-click",
+    `source-${event.month}-${event.day}`
+  );
+
+} else {
+  document.getElementById("text").textContent =
+    "No historical event available for today.";
+}
+
+   
   })
   .catch(() => {
     document.getElementById("text").textContent = "Error loading historical events.";
